@@ -148,7 +148,13 @@ getUserById('16t', users, function(user){
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
-
+function find(arr, cb){
+  arr.some(function(item){
+    if(item % 2 == 0){
+      cb(item);
+    }
+  })
+}
 
 
 
