@@ -8,6 +8,15 @@ plusOneSum([1, 2, 3, 4]); // 14
 
 */
 
+function plusOneSum(arr){
+  var newp = arr.map(function(item){
+    return item + 1;
+  })
+  var newper = newp.reduce(function(a, b){
+    return a + b;
+  })
+  console.log(newper);
+}
 
 
 /*
