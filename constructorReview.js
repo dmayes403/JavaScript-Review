@@ -84,30 +84,65 @@
 
   //code here
 
+  var Animal = function(species, name, legs, color, food){
+    this.species = species;
+    this.name = name;
+    this.legs = legs;
+    this.color = color;
+    this.food = food;
+  };
+
+  var Tiger = new Animal('tiger', 'tigger', 4, 'yellow', ['pickles', 'cheetos']);
+  console.log(Tiger);
+
 
 //Now create a person function that creates an object and returns it (not in constructor form) that has the following parameters. name, age, height, gender
 
   //code here
 
+  function personBuilder(name, age, height, gender){
+    var aPerson = {}
+    aPerson.name = name;
+    aPerson.age = age;
+    aPerson.height = height;
+    aPerson.gender = gender;
+    return aPerson;
+  }
+
 
 //Create a animal array and a person array.
 
   //code here
-
+var animal = [];
+var person = [];
 
 //Create two instances of Animal and push those into your animal array
 
   //code here
+var kangaroo = new Animal('kangaroo', 'roo', 2, 'brown', ['gum', 'cheese']);
+var spider = new Animal('black widow', 'widower', 8, 'black', ['flies', 'snakes']);
 
+animal.push(kangaroo, spider);
 
 //Create two instances of person and push those into your person array.
 
   //code here
 
+var David = personBuilder('David', 28, 5, 'male');
+var Bri = personBuilder('Bri', 26, 5, 'female');
 
+person.push(David, Bri);
+console.log(person);
 //Now we want every instance of Animal to have a eat method. This method will choose a random item in that instances food array, then alert "(name) ' ate ' (whichever food was chosen)".
 
   //code here
+
+Animal.prototype.eat = function(){
+  var rando = Math.floor(Math.random() * 2)
+  alert(this.name + 'ate ' + this.food[rando]);
+}
+
+console.log(kangaroo);
 
 
 //At this point, if we wanted to add something to every istance of person could we?
