@@ -181,6 +181,10 @@
 /* Declare and Define the functions here that will make the function calls below work properly */
 
 
+function first(names, cb){
+  return cb(names[0]);
+}
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -192,7 +196,9 @@ first(names, function(firstName){
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
-
+function last(names, cb){
+  return cb(names[names.length-1]);
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -206,6 +212,15 @@ last(names, function(lastName){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 //have the contains function return a boolean value for if the name is in the array or not.
+
+
+function contains(name, names, cb){
+  if(names.indexOf(name) !== -1){
+    return cb(true);
+  } else {
+    return cb(false);
+  }
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -226,6 +241,13 @@ contains('Colt', names, function(yes){
 
 
 var numbers = [1,2,3,4,5];
+
+function map(arr, cb){
+  for(var i = 0;i < arr.length; i++){
+    cb(arr[i]);
+  }
+}
+
 //Produces a new array of values by mapping each value in list through a transformation function
 map(numbers, function(num){
   return num * 2; //returns an array of [2,4,6,8,10]
@@ -237,6 +259,17 @@ map(numbers, function(num){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
+
+
+function uniq(arr, cb){
+  var newArr = [];
+  arr.forEach(function(value){
+    if(newArr.indexOf(value) === -1){
+      newArr.push(value);
+    }
+  })
+  cb(newArr);
+}
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -252,6 +285,13 @@ uniq(names, function(uniqArr){
 
 
 
+function each(names, cb){
+  for(var i = 0;i < names.length; i++){
+    cb(i, names[i])
+  }
+}
+
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
   console.log('The item in the ' + indice + 'position is ' + item)
@@ -263,6 +303,16 @@ each(names, function(item, indice){
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
+
+
+
+function getUserById(idCheck, users, cb){
+  for(var i = 0; i < users.length; i++){
+    if(users[i].id === idCheck){
+      cb(users[i])
+    }
+  }
+}
 
 
 var users = [

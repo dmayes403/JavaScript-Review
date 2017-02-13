@@ -193,7 +193,8 @@ finder(randomArray);
 
 //Create a copy of first and save it into second. Then, add 6 and 7 to the end of second. When you run this, first should be just [1,2,3,4,5] and second will be [1,2,3,4,5,6,7] if you created your copy correctly.
 var first = [1,2,3,4,5];
-var second;
+var second = first.slice(0);
+second.push(6,7);
 
   //code here
 
@@ -211,6 +212,18 @@ var sentence = "Dev Mountain is the best"
 
   //code here
 
+  function longest(arr){
+    var newArr = arr.split(' ');
+    var longestWord = ''
+    for(var i = 0;i<newArr.length;i++){
+      if(newArr[i].length > longestWord.length){
+        longestWord = newArr[i];
+      }
+    }
+    return longestWord;
+  }
+
+  longest(sentence)
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -222,6 +235,23 @@ var myPoem = 'What is a jQuery but a misunderstood object?'
 
   //code here
 
+  var myPoem = 'What is a jQuery but a misunderstood object?'
+
+  function capitalize(str){
+    var newArr = str.split(' ');
+
+    for(var i = 0;i<newArr.length;i++){
+      var indexer = newArr[i].split('');
+      indexer[0] = indexer[0].toUpperCase();
+      indexer = indexer.join('');
+      newArr[i] = indexer;
+    }
+    newArr = newArr.join(' ');
+    console.log(newArr);
+  }
+
+
+  capitalize(myPoem);
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
